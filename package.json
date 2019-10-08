@@ -1,0 +1,23 @@
+{
+  "name": "automeme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "mkdir -p dist; node node_modules/gulp/bin/gulp.js"
+  },
+  "author": "not_a_seagull",
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "^4.17.1",
+    "@types/gm": "^1.18.4",
+    "@types/imagemagick": "0.0.30",
+    "@types/node": "^12.7.12",
+    "express": "^4.17.1",
+    "gm": "^1.23.1",
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^5.0.1",
+    "typescript": "^3.6.3"
+  }
+}
