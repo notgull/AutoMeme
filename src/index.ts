@@ -28,6 +28,10 @@ async function genImage(caption: string, filename: string): Promise<any> {
       if (err) reject(err);
       
       let {width,height} = value;
+      let widthRatio = 500/width;
+      width = 500;
+      height *= widthRatio;
+
       let line_width = width / one_char_width;
       let words = caption.split(' ');
       let true_caption = "";
@@ -45,7 +49,7 @@ async function genImage(caption: string, filename: string): Promise<any> {
             current_line.push("\n");
           } else { 
             words.splice(0, 1);
-            current_line.push(' ');
+            current_line.push(' '); 
           }      
  
           true_caption += current_line.join(' ');
@@ -61,6 +65,7 @@ async function genImage(caption: string, filename: string): Promise<any> {
 
       try {
         gm(filename)
+          .resize(width, height)
           .gravity("South")
           .extent(width, height + (one_char_height * line_count))
           .font("fonts/Ubuntu-L.ttf")
