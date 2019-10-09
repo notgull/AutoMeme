@@ -84,10 +84,8 @@ async function createRandomMeme(): Promise<any> {
   // get a caption and image
   let caption = captions[genRandomNumber(0, captions.length - 1)];
 
-  let dirs = (await readdir("templates")).map(file => {
-    return path.join(process.cwd(), "templates", file);
-  });   
-  let image = dirs[genRandomNumber(0, dirs.length - 1)];
+  let dirs = await readdir("templates");
+  let image = path.join("templates", dirs[genRandomNumber(0, dirs.length - 1)]);
   console.log(`Caption is ${caption}, image is ${image}`);
 
   const slashes = "\/\/";
